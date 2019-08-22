@@ -1,38 +1,33 @@
 var changeCalculator = function() {
-    var price =  document.getElementById("price").value;
-    var cash = document.getElementById('moneyGiven').value;
+    var price =  document.getElementById("amount-due").value;
+    var cash = document.getElementById('amount-received').value;
     var returnValue = cash - price;
     var change = {};
    
-    const moneyTypes = ['dollars', 'quarters', 'dimes', 'nickels', 'pennies'];
+    const moneyTypes = ['dollars-output', 'quarters-output', 'dimes-output', 'nickels-output', 'pennies-output'];
 
     const moneyValues = [1, .25, .10, .05, .01];
 
     var amount;
-
 
     for (var i = 0; i < moneyValues.length; i++) {
 
         if (i < 4) {
             amount = Math.floor(returnValue/moneyValues[i]);
         } else {
-            amount = Math.ceil(returnValue/moneyValues[i]);
+            amount = Math.round(returnValue/moneyValues[i]);
         }
+        change[moneyTypes[i]] =amount;
+        console.log(amount);
+        returnValue = returnValue%moneyValues[i];
         
-        if (amount >= 0) {
-            change[moneyTypes[i]] =amount;
-            console.log(amount);
-            returnValue = returnValue%moneyValues[i];
-
-            document.getElementById(moneyTypes[i]).value = change[moneyTypes[i]];
-        }
+        document.getElementById(moneyTypes[i]).value = change[moneyTypes[i]];
+       
     }
-
     return change;
 }
 
-
-document.getElementById('calculate-button').addEventListener('click', changeCalculator);
+document.getElementById('calculate-change').onclick = changeCalculator;
 
   
 

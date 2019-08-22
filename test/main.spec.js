@@ -78,11 +78,11 @@ describe('Change Calculator', function () {
         .click('#calculate-change')
         .wait('#dollars-output')
         .evaluate(() => ({
-          dollars: document.querySelector('#dollars-output').innerText,
-          quarters: document.querySelector('#quarters-output').innerText,
-          dimes: document.querySelector('#dimes-output').innerText,
-          nickels: document.querySelector('#nickels-output').innerText,
-          pennies: document.querySelector('#pennies-output').innerText,
+          dollars: document.querySelector('#dollars-output').value,
+          quarters: document.querySelector('#quarters-output').value,
+          dimes: document.querySelector('#dimes-output').value,
+          nickels: document.querySelector('#nickels-output').value,
+          pennies: document.querySelector('#pennies-output').value,
         }))
         .end()
         .then(change => {
@@ -102,11 +102,11 @@ describe('Change Calculator', function () {
         .click('#calculate-change')
         .wait('#dollars-output')
         .evaluate(() => ({
-          dollars: document.querySelector('#dollars-output').innerText,
-          quarters: document.querySelector('#quarters-output').innerText,
-          dimes: document.querySelector('#dimes-output').innerText,
-          nickels: document.querySelector('#nickels-output').innerText,
-          pennies: document.querySelector('#pennies-output').innerText,
+          dollars: document.querySelector('#dollars-output').value,
+          quarters: document.querySelector('#quarters-output').value,
+          dimes: document.querySelector('#dimes-output').value,
+          nickels: document.querySelector('#nickels-output').value,
+          pennies: document.querySelector('#pennies-output').value,
         }))
         .end()
         .then(change => {
